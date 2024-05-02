@@ -27,7 +27,7 @@ public class UCS {
                     path.add(node.getWord());
                     node = node.getParent();
                 }
-                System.out.println("Total nodes visited: " + totalNodeVisited);
+                System.out.println("===== Total nodes visited: " + totalNodeVisited + " ======");
                 Collections.reverse(path);
                 return path;
             }

@@ -50,7 +50,7 @@ public class Main {
         }
 
         System.out.println("Choose the algorithm you want to use:");
-        System.out.println("""
+        System.out.print("""
                 1. Uniform Cost Search
                 2. Greedt Breadth-First Search
                 3. A* Search
@@ -58,11 +58,14 @@ public class Main {
                 """);
 
         int choice = scanner.nextInt();
+        System.out.println();
         switch (choice) {
             case 1 -> {
-                if (UCS.findLadderUCS(start, end, dictionary) != null) {
-                    List<String> result = UCS.findLadderUCS(start, end, dictionary);
+                List<String> result = UCS.findLadderUCS(start, end, dictionary);
+                if (result != null) {
                     System.out.println(result);
+                    System.out.println("The length of the ladder is: " + (result.size() - 1));
+                    System.out.println("=".repeat(50));
                 } else {
                     System.out.println("Word is invalid.");
                 }
