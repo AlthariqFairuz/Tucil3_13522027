@@ -1,14 +1,11 @@
 package src;
 import java.util.*;
 
-import Utils.Node;
-
 public class UCS {
-
-
+    // Uniform Cost Search algorithm is based on the cost (depth of the node) in this case
     public static List<String> findLadderUCS(String start, String end, Set<String> dictionary) {
-        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.getCost()));
-        queue.add(new Utils.Node(start, 0, null));
+        PriorityQueue<NodeUCS> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.getCost()));
+        queue.add(new src.NodeUCS(start, 0, null));
 
         // Save the cost of each word
         Map<String, Integer> costs = new HashMap<>();
@@ -16,7 +13,7 @@ public class UCS {
         int totalNodeVisited = 0;
 
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
+            NodeUCS node = queue.poll();
             totalNodeVisited++;
             String word = node.getWord();
 
@@ -43,7 +40,7 @@ public class UCS {
                         int newCost = costs.get(word) + 1;
                         // Check whether the new word is not in the costs map or the new cost is less than the previous cost
                         if (!costs.containsKey(newWord) || newCost < costs.get(newWord)) {
-                            queue.add(new Node(newWord, newCost, node));
+                            queue.add(new NodeUCS(newWord, newCost, node));
                             costs.put(newWord, newCost);
                         }
                     }

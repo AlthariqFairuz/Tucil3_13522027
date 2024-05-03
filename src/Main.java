@@ -40,8 +40,8 @@ public class Main {
         System.out.println();
 
         // Check whether the two words have the same length
-        while (start.length() != end.length()) {
-            System.out.println("The two words must have the same length.");
+        while (start.length() != end.length() || !dictionary.contains(start) || !dictionary.contains(end)){
+            System.out.println("The two words must have the same length and must be valid english words.");
             System.out.print("Enter the first word: ");
             start = scanner.nextLine();
             System.out.print("Enter the second word: ");
@@ -61,27 +61,51 @@ public class Main {
         System.out.println();
         switch (choice) {
             case 1 -> {
+                long startTime = System.nanoTime();
                 List<String> result = UCS.findLadderUCS(start, end, dictionary);
+                long endTime = System.nanoTime();
                 if (result != null) {
-                    System.out.println(result);
-                    System.out.println("The length of the ladder is: " + (result.size() - 1));
+                    for (int i = 1 ; i <= result.size(); i++){
+                        System.out.println(i + ". " +result.get(i-1));
+                    }
+                    System.out.println("The length of the ladder is: " + (result.size()));
+                    long duration = (endTime - startTime) / 1000;
+                    System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
                 } else {
-                    System.out.println("Word is invalid.");
+                    System.out.println("Can't find the result.");
                 }
             }
             case 2 -> {
-                if (GBFS.findLadder(start, end, dictionary) != null) {
-                    System.out.println(GBFS.findLadder(start, end, dictionary));
+                long startTime = System.nanoTime();
+                List<String> result = GBFS.findLadderGBFS(start, end, dictionary);
+                long endTime = System.nanoTime();
+                if (result != null) {
+                    for (int i = 1 ; i <= result.size(); i++){
+                        System.out.println(i + ". " +result.get(i-1));
+                    }
+                    System.out.println("The length of the ladder is: " + (result.size()));
+                    long duration = (endTime - startTime) / 1000;
+                    System.out.println("Time taken: " + duration + " ms");
+                    System.out.println("=".repeat(50));
                 } else {
-                    System.out.println("Word is invalid.");
+                    System.out.println("Can't find the result.");
                 }
             }
             case 3 -> {
-                if (AStar.findLadder(start, end, dictionary) != null) {
-                    System.out.println(AStar.findLadder(start, end, dictionary));
+                long startTime = System.nanoTime();
+                List<String> result = AStar.findLadderAStar(start, end, dictionary);
+                long endTime = System.nanoTime();
+                if (result != null) {
+                    for (int i = 1 ; i <= result.size(); i++){
+                        System.out.println(i + ". " +result.get(i-1));
+                    }
+                    System.out.println("The length of the ladder is: " + (result.size()));
+                    long duration = (endTime - startTime) / 1000;
+                    System.out.println("Time taken: " + duration + " ms");
+                    System.out.println("=".repeat(50));
                 } else {
-                    System.out.println("Word is invalid.");
+                    System.out.println("Can't find the result.");
                 }
             }
             default -> System.out.println("Invalid choice.");
