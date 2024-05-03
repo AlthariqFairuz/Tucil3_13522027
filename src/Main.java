@@ -69,7 +69,7 @@ public class Main {
                         System.out.println(i + ". " +result.get(i-1));
                     }
                     System.out.println("The length of the ladder is: " + (result.size()));
-                    long duration = (endTime - startTime) / 1000;
+                    long duration = (endTime - startTime) / 1000000;
                     System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
                 } else {
@@ -85,7 +85,7 @@ public class Main {
                         System.out.println(i + ". " +result.get(i-1));
                     }
                     System.out.println("The length of the ladder is: " + (result.size()));
-                    long duration = (endTime - startTime) / 1000;
+                    long duration = (endTime - startTime) / 1000000;
                     System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
                 } else {
@@ -101,7 +101,7 @@ public class Main {
                         System.out.println(i + ". " +result.get(i-1));
                     }
                     System.out.println("The length of the ladder is: " + (result.size()));
-                    long duration = (endTime - startTime) / 1000;
+                    long duration = (endTime - startTime) / 1000000;
                     System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
                 } else {
