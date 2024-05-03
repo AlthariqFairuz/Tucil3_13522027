@@ -33,9 +33,9 @@ To run this program, you need:
     git clone https://github.com/AlthariqFairuz/Tucil3_13522027.git
     ```
 
-2. Navigate to the `src` directory.
+2. Navigate to the `Tucil3_13522027` directory.
     ```bash
-    cd src
+    cd Tucil3_13522027
     ``` 
 3. Compile the Java file using the `javac` command:
 
