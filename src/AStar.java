@@ -12,13 +12,13 @@ public class AStar {
         Map<String, Integer> costs = new HashMap<>();
         Set<String> visited = new HashSet<>();
         costs.put(start, 0);
-        visited.add(start);
         int totalNodeVisited = 0;
 
         while (!queue.isEmpty()) {
             NodeAStar node = queue.poll();
             totalNodeVisited++;
             String word = node.getWord();
+            visited.add(word);
 
             // Check whether the word is the end word
             if (word.equals(end)) {
@@ -45,7 +45,6 @@ public class AStar {
                         // Check whether the new word is not in the costs map or the new cost is less than the previous cost
                         if (!costs.containsKey(newWord) || newCost < costs.get(newWord)) {
                             queue.add(new NodeAStar(newWord,node, newCost, Heuristic.heuristic(newWord, end)));
-                            visited.add(newWord);
                             costs.put(newWord, newCost);
                         }
                     }
@@ -55,4 +54,3 @@ public class AStar {
         return null;
     }
 }
-

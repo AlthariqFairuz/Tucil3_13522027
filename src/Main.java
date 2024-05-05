@@ -73,7 +73,7 @@ public class Main {
                     for (int i = 1 ; i <= result.size(); i++){
                         System.out.println(i + ". " +result.get(i-1));
                     }
-                    System.out.println("The length of the ladder is: " + (result.size()));
+                    System.out.println("Steps taken: " + (result.size()-1));
                     long duration = (endTime - startTime) / 1000000;
                     System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
@@ -89,7 +89,7 @@ public class Main {
                     for (int i = 1 ; i <= result.size(); i++){
                         System.out.println(i + ". " +result.get(i-1));
                     }
-                    System.out.println("The length of the ladder is: " + (result.size()));
+                    System.out.println("Steps taken: " + (result.size()-1));
                     long duration = (endTime - startTime) / 1000000;
                     System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
@@ -105,7 +105,7 @@ public class Main {
                     for (int i = 1 ; i <= result.size(); i++){
                         System.out.println(i + ". " +result.get(i-1));
                     }
-                    System.out.println("The length of the ladder is: " + (result.size()));
+                    System.out.println("Steps taken: " + (result.size()-1));
                     long duration = (endTime - startTime) / 1000000;
                     System.out.println("Time taken: " + duration + " ms");
                     System.out.println("=".repeat(50));
