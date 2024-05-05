@@ -3,20 +3,10 @@ import java.util.*;
 
 public class AStar {
 
-    public static int heuristic(String start, String end){
-        int diff = 0;
-        for (int i = 0 ; i < start.length(); i++){
-            if (start.charAt(i) != end.charAt(i)){
-                diff++;
-            }
-        }
-        return diff;
-    }
-
     // A* algorithm is based on the cost and its heuristic value (cost + heuristic)
     public static List<String> findLadderAStar(String start, String end, Set<String> dictionary) {
         PriorityQueue<NodeAStar> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.getCost() + a.getHeuristic()));
-        queue.add(new src.NodeAStar(start, null, 0, heuristic(start, end)));
+        queue.add(new src.NodeAStar(start, null, 0, Heuristic.heuristic(start, end)));
 
         // Save the cost and heuristic value of each word
         Map<String, Integer> costs = new HashMap<>();
@@ -54,7 +44,7 @@ public class AStar {
                         int newCost = costs.get(word) + 1;
                         // Check whether the new word is not in the costs map or the new cost is less than the previous cost
                         if (!costs.containsKey(newWord) || newCost < costs.get(newWord)) {
-                            queue.add(new NodeAStar(newWord,node, newCost, heuristic(newWord, end)));
+                            queue.add(new NodeAStar(newWord,node, newCost, Heuristic.heuristic(newWord, end)));
                             visited.add(newWord);
                             costs.put(newWord, newCost);
                         }
