@@ -43,10 +43,11 @@ To run this program, you need:
     javac -d bin src/*.java
     ```
 
-4. Nabigate to `bin` and run the compiled Java program using the `java` command:
+4. Navigate to `src` and run the compiled Java program using the `java` command:
 
     ```bash
-    java src.Main
+    cd src
+    java -cp ../bin src.Main
     ```
 ## Author
 
