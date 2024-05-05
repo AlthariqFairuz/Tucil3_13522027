@@ -49,6 +49,7 @@ To run this program, you need:
     cd src
     java -cp ../bin src.Main
     ```
+## NOTE : You can change the list of word by modifying the words inside ```Dict.txt```
 ## Author
 
 | Name | NIM | Class |
